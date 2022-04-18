@@ -7,7 +7,8 @@ struct ListItem
 
 void init(ListItem*& pHead);
 bool isEmpty(ListItem* pHead);
-ListItem& search(ListItem* pHead, char currentData);
-void deleteItem(ListItem*& pHead, char currentData);
-void addItemAfter(ListItem*& pHead, char data);
-void addItemBefore(ListItem*& pHead, char data);
+void searchPrevious(ListItem* pHead, ListItem*& pPrevious, ListItem*& pCurrent, char data);
+void search(ListItem* pHead, ListItem*& pCurrent, char data);
+void deleteItem(ListItem*& pHead, ListItem*& pPrevious, char data);
+void addAfter(ListItem*& pHead, char data);
+void addBefore(ListItem*& pHead, char data);
