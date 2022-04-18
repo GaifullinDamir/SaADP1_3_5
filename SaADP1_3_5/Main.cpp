@@ -9,4 +9,5 @@ int main()
 	ListItem* pStack = new ListItem;
 	init(pHead, pStack);
 	workWithUser(pHead, pStack);
+	clearMemory(pHead, pStack);
 };

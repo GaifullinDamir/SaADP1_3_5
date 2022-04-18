@@ -157,7 +157,7 @@ void caseDeleteItem(ListItem*& pHead, ListItem*& pStack)
 	bool check = searchPrevious(pHead, pPrevious, pCurrent, currentData);
 	if (check)
 	{
-		deleteItem(pHead, pStack, pPrevious, pCurrent, currentData);
+		moveItem(pHead, pStack, pPrevious, pCurrent);
 		std::cout << std::endl;
 		std::cout << "   Item deleted." << std::endl;
 		std::cout << std::endl;

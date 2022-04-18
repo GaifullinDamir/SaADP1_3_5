@@ -58,9 +58,8 @@ bool search(ListItem* pHead, ListItem*& pCurrent, int data)
 	}
 }
 
-void deleteItem(ListItem* pHead, ListItem*& pStack, ListItem*& pPrevious, ListItem*& pCurrent, int data)
+void moveItem(ListItem* pHead, ListItem*& pStack, ListItem*& pPrevious, ListItem*& pCurrent)
 {
-	searchPrevious(pHead, pPrevious, pCurrent, data);
 	if (!isEmpty(pHead))
 	{
 		pPrevious->next = pCurrent->next;
@@ -70,6 +69,17 @@ void deleteItem(ListItem* pHead, ListItem*& pStack, ListItem*& pPrevious, ListIt
 	else { std::cout << "List is empty!" << std::endl; }
 }
 
+bool deleteItem(ListItem* pHead)
+{
+	if (!isEmpty(pHead))
+	{
+		ListItem* pCurrent = pHead;
+		pHead = pHead->next;
+		delete pCurrent;
+		return true;
+	}
+	else return false;
+}
 void addAfter(ListItem*& pHead, ListItem*& pCurrent, int data)
 {
 	if (!isEmpty(pHead))
@@ -114,4 +124,22 @@ void show(ListItem* pHead)
 		std::cout << std::endl;
 	}
 	else std::cout << "List is empty."<< std::endl;
+}
+
+void clearMemory(ListItem*& pHead, ListItem*& pStack)
+{
+	ListItem* pCurrent = NULL;
+
+	for (int listNumber = 0; listNumber < 2; listNumber++)
+	{
+		if (listNumber == 0) { pCurrent = pHead; }
+		else if (listNumber == 1) { pCurrent = pStack; }
+		while (pCurrent != NULL)
+		{
+			deleteItem(pCurrent);
+		}
+		pHead = NULL; pStack = NULL;
+	}
+
+
 }
